@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter_svg: 0.19.1
   smooth_star_rating: ^1.0.4
+  curved_navigation_bar: ^0.3.7
   
 
 dev_dependencies:

@@ -1,4 +1,6 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:food_application/constant.dart';
 import 'package:food_application/screens/home/component/drawer.dart';
 import 'package:food_application/screens/home/tabScreens/breakFast.dart';
 import 'package:food_application/screens/home/tabScreens/dinnerScreen.dart';
@@ -27,14 +29,38 @@ class _HomeScreenState extends State<HomeScreen>
       key: scaffoldKey,
       drawer: NavBar(),
       appBar: homeAppBar(context, scaffoldKey, tabController),
-      body: new TabBarView(
-          controller: tabController,
-          children: [
-            Dinner(),
-            BreakFast(),
-            Salad(),
-            Fruit(),
-          ]),
+      body: new TabBarView(controller: tabController, children: [
+        Dinner(),
+        BreakFast(),
+        Salad(),
+        Fruit(),
+      ]),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: kTextColor,
+        height: 50,
+          backgroundColor: kPrimaryColor,
+          animationCurve: Curves.easeInOut,
+        items: [
+          Icon(
+            Icons.verified_user,
+            size: 20,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.add,
+            size: 20,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.list,
+            size: 20,
+            color: Colors.white,
+          ),
+        ],
+        onTap: (index) {
+          debugPrint("Current Index is $index");
+        },
+      ),
     );
   }
 }

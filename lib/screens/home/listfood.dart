@@ -53,7 +53,12 @@ Widget foodDetailCard(food myfood, BuildContext context) {
                     Text(
                       myfood.ingrediant,
                       style: TextStyle(color: Colors.black, fontSize: 12),
+                    ),
+                    Text(
+                      myfood.ingrediant,
+                      style: TextStyle(color: Colors.black, fontSize: 12),
                     )
+
                   ],
                 )
               ],
