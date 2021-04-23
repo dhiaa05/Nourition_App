@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # food_application
 
 A new Flutter project.
@@ -15,3 +16,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 #dhiaa
+=======
+# Nourition_App
+My application Of nourition food
+>>>>>>> dd95badaf12c3ddefb8d67ab9369a96838f26569
