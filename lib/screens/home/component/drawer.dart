@@ -54,18 +54,18 @@ class NavBar extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.home),
+            title: Text("Home"),
+            onTap: () => null,
+          ),
+          ListTile(
             leading: Icon(Icons.favorite),
             title: Text("Favorite"),
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.people),
-            title: Text("Friends"),
-            onTap: () => null,
-          ),
-          ListTile(
-            leading: Icon(Icons.share),
-            title: Text("Share"),
+            leading: Icon(Icons.save_alt_rounded),
+            title: Text("My Orders"),
             onTap: () => null,
           ),
           Divider(),
@@ -87,7 +87,7 @@ class NavBar extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text("Exit"),
+            title: Text("Log out"),
             onTap: () => null,
           ),
         ],
