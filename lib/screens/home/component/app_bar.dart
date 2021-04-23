@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_application/constant.dart';
 
-AppBar homeAppBar(BuildContext context, GlobalKey<ScaffoldState> key) {
+AppBar homeAppBar(BuildContext context, GlobalKey<ScaffoldState> key, TabController tabController) {
   return AppBar(
     backgroundColor: Colors.white,
     centerTitle: true,
@@ -29,12 +29,22 @@ AppBar homeAppBar(BuildContext context, GlobalKey<ScaffoldState> key) {
           ),
           onPressed: () {})
     ],
-    bottom: new TabBar(tabs: 
-    [
-      new Tab(text: "Dinner",),
-      new Tab(text: "Berakfast",),
-      new Tab(text: "Sallad",),
-      new Tab(text: "Fruits",),
+    bottom: new TabBar(
+      controller: tabController,
+      indicatorColor: kPrimaryColor,
+      tabs: [
+      new Tab(
+        text: "Dinner",
+      ),
+      new Tab(
+        text: "Berakfast",
+      ),
+      new Tab(
+        text: "Sallad",
+      ),
+      new Tab(
+        text: "Fruits",
+      ),
     ]),
   );
 }
