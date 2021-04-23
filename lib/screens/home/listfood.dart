@@ -9,17 +9,22 @@ Widget foodDetailCard(food myfood, BuildContext context) {
     child: Container(
       height: 150,
       child: Card(
-        
         color: kPrimaryColor,
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
-           // Navigator.push(context, MaterialPageRoute(builder: (context{return detailscreen()})))
-          Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => detailscreen()),
-  );
-          
+            // Navigator.push(context, MaterialPageRoute(builder: (context{return detailscreen()})))
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Detailscreen(
+                        name: "Burger",
+                        price: 45,
+                        numOfViewers: 35,
+                        rating: 4.5,
+                      )),
+              // name: "Burger",
+            );
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_application/constant.dart';
-import 'package:food_application/screens/home/component/drawer.dart';
 
 AppBar homeAppBar(BuildContext context, GlobalKey<ScaffoldState> key) {
   return AppBar(
@@ -30,5 +29,12 @@ AppBar homeAppBar(BuildContext context, GlobalKey<ScaffoldState> key) {
           ),
           onPressed: () {})
     ],
+    bottom: new TabBar(tabs: 
+    [
+      new Tab(text: "Dinner",),
+      new Tab(text: "Berakfast",),
+      new Tab(text: "Sallad",),
+      new Tab(text: "Fruits",),
+    ]),
   );
 }

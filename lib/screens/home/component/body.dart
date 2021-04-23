@@ -57,7 +57,7 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         SearchBox(onChanged: (value) {}),
-        categorieList(),
+      //  Categorie(),
         Column(
             children: listFood.map((f) {
           return foodDetailCard(f, context);

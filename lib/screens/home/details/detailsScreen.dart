@@ -6,18 +6,53 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 import 'components/totalPrice.dart';
 
-class detailscreen extends StatelessWidget {
+class Detailscreen extends StatelessWidget {
+  final price;
+  final name;
+  final numOfViewers;
+  final rating;
+  final decription;
+
+  const Detailscreen(
+      {Key key,
+      this.price,
+      this.name,
+      this.numOfViewers,
+      this.rating,
+      this.decription})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: buildAppBar(),
-      body: Body(),
+      body: Body(
+        name: name,
+        price: price,
+        numOfViewers: numOfViewers,
+        rating: rating,
+      ),
     );
   }
 }
 
 class Body extends StatelessWidget {
+  final price;
+  final name;
+  final numOfViewers;
+  final rating;
+  final description;
+
+  const Body(
+      {Key key,
+      this.price,
+      this.name,
+      this.numOfViewers,
+      this.rating,
+      this.description})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -42,14 +77,16 @@ class Body extends StatelessWidget {
                   name: "MacDonalds",
                 ),
                 PriceTotal(
-                  name: "Chesse Burger",
-                  numOfReviews: 35,
-                  rating: 4.5,
-                  price: 30,
+                  name: name,
+                  numOfReviews: numOfViewers,
+                  rating: rating,
+                  price: price,
                   onRatingChanged: (value) {},
                 ),
                 Text(
-                  "A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty. ... As with other hamburgers, a cheeseburger may include toppings such as lettuce, tomato, onion, pickles, bacon, mayonnaise, ketchup, and mustard.",
+                  (description != null)
+                      ? description
+                      : "A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty. ... As with other hamburgers, a cheeseburger may include toppings such as lettuce, tomato, onion, pickles, bacon, mayonnaise, ketchup, and mustard.",
                   style: TextStyle(height: 1.5),
                 ),
                 SizedBox(
