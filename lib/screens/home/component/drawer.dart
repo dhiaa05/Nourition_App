@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:food_application/constant.dart';
+import 'package:food_application/drawerScreen/logIn.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -56,7 +57,9 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.home),
             title: Text("Home"),
-            onTap: () => null,
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) => LoginScreen()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.favorite),
