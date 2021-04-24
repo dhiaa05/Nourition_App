@@ -7,7 +7,7 @@ import 'package:food_application/screens/home/tabScreens/dinnerScreen.dart';
 import 'package:food_application/screens/home/tabScreens/fruit.dart';
 import 'package:food_application/screens/home/tabScreens/salad.dart';
 import 'component/app_bar.dart';
-import 'component/body.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen>
         Fruit(),
       ]),
       bottomNavigationBar: CurvedNavigationBar(
-        color: kTextColor,
+        color: kPrimaryColor,
         height: 50,
           backgroundColor: kPrimaryColor,
           animationCurve: Curves.easeInOut,

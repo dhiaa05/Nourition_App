@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:food_application/constant.dart';
 import 'package:food_application/screens/home/home-screen.dart';
+import 'package:food_application/screens/services/auth.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(
+        create: (context) => Auth(),
+      ),
+    ], child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
