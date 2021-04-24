@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_application/constant.dart';
-
+import 'package:food_application/screens/services/auth.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -53,12 +54,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               onPressed: () {
                 Map creds = {
-                  'email' : _emailController.text,
-                  'password' :_passwordController.text,
-                  'device_name' : 'mobile'
-                }; 
+                  'email': _emailController.text,
+                  'password': _passwordController.text,
+                  'device_name': 'mobile'
+                };
                 if (_formkey.currentState.validate()) {
-                  print(creds);
+                  Provider.of<Auth>(context, listen: false).login(creds: creds);
+                  Navigator.pop(context);
                 }
               },
             )

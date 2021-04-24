@@ -5,9 +5,11 @@ class Auth extends ChangeNotifier {
 
   bool get authticated => _isLoggIn;
 
-  void login(Map creds) {
+  void login({Map creds}) {
+    print(creds);
     _isLoggIn = true;
-    notifyListeners(); 
+    notifyListeners();
+    
   }
 
   void logout() {

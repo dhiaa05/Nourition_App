@@ -7,24 +7,23 @@ import 'package:provider/provider.dart';
 class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Drawer( child: Consumer<Auth>(
+    return Drawer(child: Consumer<Auth>(
       builder: (context, auth, child) {
         if (!auth.authticated) {
           return ListView(
             children: [
               ListTile(
-              
-                leading:  Icon(Icons.login), 
+                leading: Icon(Icons.login),
                 title: Text("LogIn"),
                 onTap: () {
-
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
                 },
               )
-            
             ],
           );
         } else {
-          ListView(
+          return ListView(
             padding: EdgeInsets.zero,
             children: [
               UserAccountsDrawerHeader(
@@ -108,7 +107,9 @@ class NavBar extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.exit_to_app),
                 title: Text("Log out"),
-                onTap: () => null,
+                onTap: () {
+                  Provider.of<Auth>(context, listen: false).logout();
+                },
               ),
             ],
           );
