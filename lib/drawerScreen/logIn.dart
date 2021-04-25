@@ -14,8 +14,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formkey = GlobalKey<FormState>();
 
   @override
-  void iniState() {
-    super.initState();
+  void initState() {
+    _emailController.text = "dhiaa@gmail.com";
+    _passwordController.text = "19950506";
+
+        super.initState();
+
   }
 
   @override
@@ -38,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   value.isEmpty ? 'please entrie your email Address' : null,
             ),
             TextFormField(
+              
               controller: _passwordController,
               validator: (value) =>
                   value.isEmpty ? 'please entrie your password' : null,
