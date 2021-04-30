@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:food_application/screens/home/home-screen.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LogInScreen extends StatefulWidget {
   @override
@@ -18,7 +19,6 @@ class _LogInScreenState extends State<LogInScreen> {
   static final FacebookLogin facebookSignIn = new FacebookLogin();
 
   String _message = 'Log in/out by pressing the buttons below.';
-
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +147,7 @@ class _LogInScreenState extends State<LogInScreen> {
               color: Colors.black,
               padding: EdgeInsets.all(10),
               onPressed: () {
-                //SingUpWithGoogle();
+                SingUpWithGoogle();
               },
             ),
           )
@@ -190,10 +190,9 @@ class _LogInScreenState extends State<LogInScreen> {
   //     }
   //   }
   // }
-  
+
   Future<Null> SingUpWithFacebook() async {
-    final FacebookLoginResult result =
-        await facebookSignIn.logIn(['email']);
+    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
 
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
@@ -218,9 +217,35 @@ class _LogInScreenState extends State<LogInScreen> {
     }
   }
 
-   void _showMessage(String message) {
+  void _showMessage(String message) {
     setState(() {
       _message = message;
     });
+  }
+
+  Future<Null> SingUpWithGoogle() async {
+    try {
+      final GoogleSignIn _googleSignIn = GoogleSignIn(
+        scopes: ['email'],
+        hostedDomain: "",
+        clientId: "",
+      );
+      final FirebaseAuth _auth = FirebaseAuth.instance;
+
+      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAuthentication googelAuth =
+          await googleUser.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        idToken: googelAuth.idToken,
+      );
+
+      final User user = (await _auth.signInWithCredential(credential)).user;
+      print("singed In " + user.displayName);
+
+      return user;
+    } catch (e) {
+      print(e.message);
+    }
   }
 }
