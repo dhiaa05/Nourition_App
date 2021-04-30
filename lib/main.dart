@@ -1,17 +1,25 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:food_application/constant.dart';
 import 'package:food_application/screens/home/home-screen.dart';
 import 'package:food_application/screens/services/auth.dart';
+import 'package:food_application/src/Principal.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(
-        create: (context) => Auth(),
-      ),
-    ], child: MyApp()),
-  );
+    ParicipalHome()
+      // MultiProvider(providers: [
+      //   ChangeNotifierProvider(
+      //     create: (context) => Auth(),
+      //   ),
+      // ], child: MyApp()),
+
+      );
 }
 
 class MyApp extends StatelessWidget {
